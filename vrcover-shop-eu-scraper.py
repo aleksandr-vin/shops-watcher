@@ -11,7 +11,7 @@ logging.basicConfig(format='%(asctime)s %(name)s %(levelname)s - %(message)s', l
 
 def telegramming(msg):
     from telegram import Bot
-    bot = Bot(token=os.getenv('VRCoverAvailabilityBot_TOKEN'))
+    bot = Bot(token=os.getenv('TELEGRAM_BOT_TOKEN'))
     chat_id = 115668939 # my channel
     bot.send_message(chat_id=chat_id, text=msg)
 
@@ -30,4 +30,4 @@ for l in soup.find_all('script', id="ProductJson-product"):
             telegramming(f"{v['sku']} {'available' if v['available'] else 'not-available'}: {v['name']}: {url}")
         else:
             logging.info("Product is not available, not telegramming")
-            # telegramming("Just checking")
+            telegramming("Just checking")

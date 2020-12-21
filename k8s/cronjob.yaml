@@ -1,0 +1,24 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: scraper
+  namespace: vrcover-shop-eu-scraper
+spec:
+  schedule: "*/30 * * * *"
+  successfulJobsHistoryLimit: 10
+  failedJobsHistoryLimit: 10
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: scraper
+            image: aleksandrvin/vrcover-shop-eu-scraper
+            imagePullPolicy: Always
+            env:
+            - name: TELEGRAM_BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: bot-token
