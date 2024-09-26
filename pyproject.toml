@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "shop-watcher"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 authors = ["Aleksandr Vinokurov <kilo@aleksandr.vin>"]
 readme = "README.md"
@@ -10,6 +10,7 @@ python = "^3.12"
 gql = {extras = ["all"], version = "^3.5.0"}
 typer = "^0.12.5"
 
+python-telegram-bot = "^21.6"
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
 
