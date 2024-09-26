@@ -1,13 +1,14 @@
 [tool.poetry]
-name = "vrcover-shop-eu-scraper"
+name = "shop-watcher"
 version = "0.1.0"
 description = ""
-authors = ["Aleksandr Vinokurov <aleksandr.vin@gmail.com>"]
+authors = ["Aleksandr Vinokurov <kilo@aleksandr.vin>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
 gql = {extras = ["all"], version = "^3.5.0"}
+typer = "^0.12.5"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
@@ -15,3 +16,6 @@ pytest = "^8.3.3"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+check-gopro-shop = "shop_watcher.gopro:app"
